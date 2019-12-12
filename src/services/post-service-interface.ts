@@ -1,11 +1,11 @@
 import Post from '../models/post'
 
 export interface FindPostInterface {
-    (id: number): Post
+    (id: number): Promise<Post>
 }
 
 export interface FindAllPostInterface {
-    (): Post[]
+    (): Promise<Post[]>
 }
 
 export default interface PostServiceInterface {
