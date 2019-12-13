@@ -1,9 +1,9 @@
 import UserServiceInterface from './user-service-interface'
-import ServiceContainer from './service-container'
-import FetchFunctionInterface from './node-fetch/fetch-function-interface'
-import {ServiceTypes} from './service-types'
+import ServiceContainer from '../service-core/service-container'
+import FetchFunctionInterface from '../node-fetch/fetch-function-interface'
+import {ServiceTypes} from '../service-core/service-types'
 import {Response} from 'node-fetch'
-import User from '../models/user'
+import User from '../../models/user'
 
 export class UserService implements UserServiceInterface {
     private fetch: FetchFunctionInterface
