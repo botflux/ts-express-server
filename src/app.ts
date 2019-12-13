@@ -23,7 +23,4 @@ app
     .use('/posts', createPostRouter(serviceContainer))
     .use('/users', createUserRouter(serviceContainer))
 
-const port: string | number = process.env.PORT || 3000
-
-app.listen(port, () =>
-    console.log(`Application is listening on port http://localhost:${port}`))
+export default app
