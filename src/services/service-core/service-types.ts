@@ -1,5 +1,8 @@
 export enum ServiceTypes {
     PostService,
     UserService,
-    Fetch
+    Fetch,
+    GetRouterCommand,
+    PostRouterCommand,
+    RouterCommandHandler
 }
