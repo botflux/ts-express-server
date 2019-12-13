@@ -1,14 +1,15 @@
-import express, { Application, Request, Response } from 'express'
+import express, { Application } from 'express'
 import createHomeRouter from './routers/home-router'
-import ApplicationDependencies from './services/application-dependecies'
 import PostService from './services/post-service'
-import PostServiceInterface from './services/post-service-interface'
+import ServiceContainer from './services/service-container'
+import fetch from 'node-fetch'
 
 const app: Application = express()
-const postService: PostServiceInterface = new PostService()
-const appDependencies = new ApplicationDependencies(postService)
+const serviceContainer = (new ServiceContainer())
+    .addService('fetch', () => fetch)
+    .addService('postService', (container: ServiceContainer) => new PostService(container))
 
-app.use(createHomeRouter(appDependencies))
+app.use(createHomeRouter(serviceContainer))
 
 const port: string | number = process.env.PORT || 3000
 
