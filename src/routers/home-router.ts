@@ -1,11 +1,12 @@
-import { Router, Request, Response } from 'express'
+import {Request, Response, Router} from 'express'
 import Post from '../models/post'
 import ServiceContainer from '../services/service-container'
 import PostServiceInterface from '../services/post-service-interface'
+import {ServiceTypes} from '../services/service-types'
 
 export default (serviceContainer: ServiceContainer): Router => {
     const router: Router = Router()
-    const postService: PostServiceInterface = serviceContainer.getService('postService')
+    const postService: PostServiceInterface = serviceContainer.getService(ServiceTypes.PostService)
 
     router
         .get('/', (req: Request, res: Response) => {

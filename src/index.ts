@@ -1,13 +1,14 @@
-import express, { Application } from 'express'
+import express, {Application} from 'express'
 import createHomeRouter from './routers/home-router'
 import PostService from './services/post-service'
 import ServiceContainer from './services/service-container'
 import fetch from 'node-fetch'
+import {ServiceTypes} from './services/service-types'
 
 const app: Application = express()
 const serviceContainer = (new ServiceContainer())
-    .addService('fetch', () => fetch)
-    .addService('postService', (container: ServiceContainer) => new PostService(container))
+    .addService(ServiceTypes.Fetch, () => fetch)
+    .addService(ServiceTypes.PostService, (container: ServiceContainer) => new PostService(container))
 
 app.use(createHomeRouter(serviceContainer))
 

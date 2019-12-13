@@ -1,4 +1,5 @@
 import { ServiceFactoryInterface } from './service-interface'
+import { ServiceTypes } from './service-types'
 
 export default class ServiceContainer {
 
@@ -8,13 +9,13 @@ export default class ServiceContainer {
         this.services = []
     }
 
-    addService(name: string, serviceFactory: ServiceFactoryInterface): this {
-        this.services = [ ...this.services, new ServiceContainerElement(name, serviceFactory, this) ]
+    addService(type: ServiceTypes, serviceFactory: ServiceFactoryInterface): this {
+        this.services = [ ...this.services, new ServiceContainerElement(type, serviceFactory, this) ]
         return this
     }
 
-    getService(name: string): any {
-        const serviceContainerElement: ServiceContainerElement | undefined = this.services.find(sc => sc.name === name)
+    getService(type: ServiceTypes): any {
+        const serviceContainerElement: ServiceContainerElement | undefined = this.services.find(sc => sc.type === type)
         // TODO: Add service not found exception when no service
         return serviceContainerElement ? serviceContainerElement.service : undefined
     }
@@ -24,20 +25,20 @@ export default class ServiceContainer {
  * Handles a service instantiation
  */
 export class ServiceContainerElement {
-    private readonly _name: string
+    private readonly _type: ServiceTypes
     private readonly _serviceFactory: ServiceFactoryInterface
     private readonly _container: ServiceContainer
 
     private _service?: any
 
-    constructor(name: string, serviceFactory: ServiceFactoryInterface, container: ServiceContainer) {
-        this._name = name
+    constructor(type: ServiceTypes, serviceFactory: ServiceFactoryInterface, container: ServiceContainer) {
+        this._type = type
         this._serviceFactory = serviceFactory
         this._container = container
     }
 
-    get name(): string {
-        return this._name
+    get type(): ServiceTypes {
+        return this._type
     }
 
     get serviceFactory(): ServiceFactoryInterface {

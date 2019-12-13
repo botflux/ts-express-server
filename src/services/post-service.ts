@@ -1,15 +1,16 @@
 import PostServiceInterface from './post-service-interface'
 import Post from '../models/post'
-import fetch, {Response} from 'node-fetch'
+import {Response} from 'node-fetch'
 import ServiceContainer from './service-container'
 import FetchFunctionInterface from './node-fetch/fetch-function-interface'
+import {ServiceTypes} from './service-types'
 
 export default class PostService implements PostServiceInterface {
 
     private fetch: FetchFunctionInterface
 
     constructor(serviceContainer: ServiceContainer) {
-        this.fetch = serviceContainer.getService('fetch')
+        this.fetch = serviceContainer.getService(ServiceTypes.Fetch)
     }
 
     find (id: number): Promise<Post> {
