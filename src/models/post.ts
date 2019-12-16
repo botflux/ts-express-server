@@ -1,4 +1,4 @@
-export default class Post {
+export class Post {
     private _id: number
     private _userId: number
     private _title: string

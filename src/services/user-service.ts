@@ -3,7 +3,7 @@ import {ServiceContainer} from './core/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
 import {Response} from 'node-fetch'
-import User from '../models/user'
+import {User} from '../models/user'
 
 export class UserService implements UserServiceInterface {
     private fetch: FetchFunctionInterface
