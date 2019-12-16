@@ -5,7 +5,7 @@ import {RouteMapping} from '../base-controller'
 
 // TODO: To achieve the @RegisterController, we need to create a ControllerFactory class.
 // TODO: Because each Controller need the ServiceContainer, we need to declare a global ServiceContainer or ServiceFactory
-// TODO: We can't do the trick by using the ControllerFactory has a service because it will be dependent of app.ts
+// TODO: We can't do the trick by using the ControllerFactory has a service because it will be dependent of setup-app.ts
 
 export const Get = (url: string) =>
     (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) => {

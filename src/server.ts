@@ -1,5 +1,5 @@
 import express from 'express'
-import {setupApp} from './app'
+import {setupApp} from './setup-app'
 
 const app = express()
 const port: string | number = process.env.PORT || 3000
