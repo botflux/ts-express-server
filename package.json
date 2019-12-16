@@ -17,6 +17,7 @@
     "@types/node-fetch": "^2.5.4",
     "concurrently": "^5.0.1",
     "jest": "^24.9.0",
+    "module-alias": "^2.2.2",
     "nodemon": "^2.0.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
