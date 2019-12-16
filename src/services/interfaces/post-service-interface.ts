@@ -8,7 +8,7 @@ export interface FindAllPostInterface {
     (): Promise<Post[]>
 }
 
-export default interface PostServiceInterface {
+export interface PostServiceInterface {
     find: FindPostInterface,
     findAll: FindAllPostInterface
 }

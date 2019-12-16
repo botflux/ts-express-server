@@ -8,7 +8,7 @@ export interface FindAllUserInterface {
     (): Promise<User[]>
 }
 
-export default interface UserServiceInterface {
+export interface UserServiceInterface {
     find: FindUserInterface,
     findAll: FindAllUserInterface
 }

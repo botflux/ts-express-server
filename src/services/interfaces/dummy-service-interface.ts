@@ -2,6 +2,6 @@ export interface DummyDoFunctionInterface {
     (str: string): Promise<string>
 }
 
-export default interface DummyServiceInterface {
+export interface DummyServiceInterface {
     do: DummyDoFunctionInterface
 }

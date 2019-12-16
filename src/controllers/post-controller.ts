@@ -1,5 +1,5 @@
 import ServiceContainer from '../services/core/service-container'
-import PostServiceInterface from '../services/interfaces/post-service-interface'
+import {PostServiceInterface} from '../services/interfaces/post-service-interface'
 import {ServiceTypes} from '../services/core/service-types'
 import {NextFunction, Request, Response} from 'express'
 import Post from '../models/post'
@@ -25,13 +25,13 @@ export default class PostController extends BaseController {
     findAll (req: Request, res: Response, next: NextFunction) {
         this._postService.findAll()
             .then((posts: Post[]) => res.json(posts))
-            .catch(error => next(error))
+            .catch((error: Error) => next(error))
     }
 
     @Get('/:id')
     find(req: Request, res: Response, next: NextFunction) {
         this._postService.find(Number.parseInt(req.params.id))
             .then((post: Post) => res.json(post))
-            .catch(error => next(error))
+            .catch((error: Error) => next(error))
     }
 }

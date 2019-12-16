@@ -1,4 +1,4 @@
-import DummyServiceInterface from './interfaces/dummy-service-interface'
+import {DummyServiceInterface} from './interfaces/dummy-service-interface'
 import {Service} from './core/decorators'
 import {ServiceTypes} from './core/service-types'
 
