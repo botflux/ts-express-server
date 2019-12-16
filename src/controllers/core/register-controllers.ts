@@ -1,11 +1,11 @@
 import {Application, Router} from 'express'
-import {ServiceContainer} from '../services/core/service-container'
-import PostController from '../controllers/post-controller'
-import { mappingToRouter } from '../controllers/core/mapping-to-router'
-import BaseController, {RouteMapping} from '../controllers/base-controller'
-import UserController from '../controllers/user-controller'
+import {ServiceContainer} from '../../services/core/service-container'
+import PostController from '../post-controller'
+import { mappingToRouter } from './mapping-to-router'
+import BaseController, {RouteMapping} from '../base-controller'
+import UserController from '../user-controller'
 
-export const registerRoutes = (app: Application, serviceContainer: ServiceContainer) => {
+export const registerControllers = (app: Application, serviceContainer: ServiceContainer) => {
     // app
     //     .use('/posts', createPostRouter(serviceContainer))
     //     .use('/users', createUserRouter(serviceContainer))
