@@ -1,7 +1,7 @@
 import {Request, Response, Router} from 'express'
 import ServiceContainer from '../services/core/service-container'
 import {ServiceTypes} from '../services/core/service-types'
-import UserServiceInterface from '../services/user-service/user-service-interface'
+import UserServiceInterface from '../services/interfaces/user-service-interface'
 import User from '../models/user'
 
 export default (serviceContainer: ServiceContainer): Router => {

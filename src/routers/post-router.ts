@@ -1,7 +1,7 @@
 import {Request, Response, Router} from 'express'
 import Post from '../models/post'
 import ServiceContainer from '../services/core/service-container'
-import PostServiceInterface from '../services/post-service/post-service-interface'
+import PostServiceInterface from '../services/interfaces/post-service-interface'
 import {ServiceTypes} from '../services/core/service-types'
 
 export default (serviceContainer: ServiceContainer): Router => {

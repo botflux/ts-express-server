@@ -4,5 +4,6 @@ export enum ServiceTypes {
     Fetch,
     GetRouterCommand,
     PostRouterCommand,
-    RouterCommandHandler
+    RouterCommandHandler,
+    DummyService
 }
