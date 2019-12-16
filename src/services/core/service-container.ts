@@ -1,7 +1,7 @@
 import { ServiceFactoryInterface } from './service-interface'
 import { ServiceTypes } from './service-types'
 
-export default class ServiceContainer {
+export class ServiceContainer {
 
     private services: ServiceContainerElement[]
 

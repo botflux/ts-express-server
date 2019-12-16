@@ -3,7 +3,7 @@ import express, {Application} from 'express'
 
 import { registerServices } from './services/register-services'
 import { registerRoutes } from './routers/register-routes'
-import ServiceContainer from './services/core/service-container'
+import { ServiceContainer } from './services/core/service-container'
 
 const app: Application = express()
 

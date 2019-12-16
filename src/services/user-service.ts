@@ -1,5 +1,5 @@
 import {UserServiceInterface} from './interfaces/user-service-interface'
-import ServiceContainer from './core/service-container'
+import {ServiceContainer} from './core/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
 import {Response} from 'node-fetch'

@@ -1,5 +1,5 @@
 import BaseController from './base-controller'
-import ServiceContainer from '../services/core/service-container'
+import {ServiceContainer} from '../services/core/service-container'
 import {ServiceTypes} from '../services/core/service-types'
 import {Request, Response, NextFunction} from 'express'
 import User from '../models/user'

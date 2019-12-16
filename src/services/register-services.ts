@@ -1,4 +1,4 @@
-import ServiceContainer from './core/service-container'
+import {ServiceContainer} from './core/service-container'
 import {ServiceTypes} from './core/service-types'
 import fetch from 'node-fetch'
 import PostService from './post-service'
