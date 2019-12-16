@@ -6,12 +6,6 @@ import {ControllerBaseUrl, Get} from './core/decorators'
 import {BaseController} from './base-controller'
 import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
 
-// Controllers inherit from BaseController class, this class contain a field that stores
-// a mapping (we simply register method -> handler | handler[])
-
-// We implements a method to convert this mapping in a router, this functions will be outside of the BaseController.
-// It will be in the registerControllers functions
-
 @ControllerBaseUrl('/posts')
 export class PostController extends BaseController {
     private _postService: ApiServiceInterface<Post>
