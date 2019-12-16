@@ -2,7 +2,7 @@ import 'reflect-metadata'
 import express, {Application} from 'express'
 
 import { registerServices } from './services/register-services'
-import { registerRoutes } from './routers/register-routes'
+import { registerControllers } from './controllers/core/register-controllers'
 import { ServiceContainer } from './services/core/service-container'
 
 const app: Application = express()
@@ -11,6 +11,6 @@ const app: Application = express()
 const serviceContainer: ServiceContainer = registerServices(new ServiceContainer())
 
 /* Routers declaration */
-registerRoutes(app, serviceContainer)
+registerControllers(app, serviceContainer)
 
 export default app

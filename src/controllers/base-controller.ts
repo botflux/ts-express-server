@@ -1,6 +1,6 @@
 import { Handler } from 'express'
 
-export default class BaseController {
+export class BaseController {
     private _mapping?: RouteMapping
 
     getMapping(): RouteMapping | undefined {

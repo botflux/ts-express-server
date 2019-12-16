@@ -1,4 +1,4 @@
-import BaseController from './base-controller'
+import {BaseController} from './base-controller'
 import {ServiceContainer} from '../services/core/service-container'
 import {ServiceTypes} from '../services/core/service-types'
 import {Request, Response, NextFunction} from 'express'
@@ -7,7 +7,7 @@ import {ControllerBaseUrl, Get} from './core/decorators'
 import {UserServiceInterface} from '../services/interfaces/user-service-interface'
 
 @ControllerBaseUrl('/users')
-export default class UserController extends BaseController {
+export class UserController extends BaseController {
     private readonly _userService: UserServiceInterface
 
     constructor(container: ServiceContainer) {
