@@ -20,8 +20,3 @@ export const ControllerBaseUrl = (url: string) =>
         const mapping: RouteMapping = target.prototype.getMapping() || target.prototype.initializeMapping()
         mapping.baseUrl = url
     }
-
-export const RegisterController = () =>
-    (target: Function) => {
-        // console.log(target())
-    }
