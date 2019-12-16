@@ -1,6 +1,4 @@
 import {Application, Router} from 'express'
-import createPostRouter from './post-router'
-import createUserRouter from './user-router'
 import {ServiceContainer} from '../services/core/service-container'
 import PostController from '../controllers/post-controller'
 import { mappingToRouter } from '../controllers/core/mapping-to-router'
