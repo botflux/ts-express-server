@@ -1,6 +1,6 @@
 import {Request, Response, Router} from 'express'
-import ServiceContainer from '../services/service-core/service-container'
-import {ServiceTypes} from '../services/service-core/service-types'
+import ServiceContainer from '../services/core/service-container'
+import {ServiceTypes} from '../services/core/service-types'
 import UserServiceInterface from '../services/user-service/user-service-interface'
 import User from '../models/user'
 

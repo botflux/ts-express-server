@@ -1,7 +1,7 @@
 import UserServiceInterface from './user-service-interface'
-import ServiceContainer from '../service-core/service-container'
+import ServiceContainer from '../core/service-container'
 import FetchFunctionInterface from '../node-fetch/fetch-function-interface'
-import {ServiceTypes} from '../service-core/service-types'
+import {ServiceTypes} from '../core/service-types'
 import {Response} from 'node-fetch'
 import User from '../../models/user'
 

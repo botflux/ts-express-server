@@ -1,6 +1,6 @@
-import ServiceContainer from '../services/service-core/service-container'
+import ServiceContainer from '../services/core/service-container'
 import PostServiceInterface from '../services/post-service/post-service-interface'
-import {ServiceTypes} from '../services/service-core/service-types'
+import {ServiceTypes} from '../services/core/service-types'
 import {NextFunction, Request, Response} from 'express'
 import Post from '../models/post'
 import {ControllerBaseUrl, Get} from './core/decorators'
