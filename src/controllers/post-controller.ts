@@ -3,7 +3,7 @@ import PostServiceInterface from '../services/post-service/post-service-interfac
 import {ServiceTypes} from '../services/service-core/service-types'
 import {NextFunction, Request, Response} from 'express'
 import Post from '../models/post'
-import {Controller, Get} from './core/decorators'
+import {ControllerBaseUrl, Get} from './core/decorators'
 import BaseController from './base-controller'
 
 // Controllers inherit from BaseController class, this class contain a field that stores
@@ -12,7 +12,7 @@ import BaseController from './base-controller'
 // We implements a method to convert this mapping in a router, this functions will be outside of the BaseController.
 // It will be in the registerRoutes functions
 
-@Controller('/posts')
+@ControllerBaseUrl('/posts')
 export default class PostController extends BaseController {
     private _postService: PostServiceInterface
 

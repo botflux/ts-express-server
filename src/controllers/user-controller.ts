@@ -4,9 +4,9 @@ import {UserService} from '../services/user-service/user-service'
 import {ServiceTypes} from '../services/service-core/service-types'
 import {Request, Response, NextFunction} from 'express'
 import User from '../models/user'
-import {Controller, Get} from './core/decorators'
+import {ControllerBaseUrl, Get, RegisterController} from './core/decorators'
 
-@Controller('/users')
+@ControllerBaseUrl('/users')
 export default class UserController extends BaseController {
     private readonly _userService: UserService
 
