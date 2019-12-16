@@ -1,10 +1,10 @@
 import {ServiceContainer} from '../services/core/service-container'
-import {PostServiceInterface} from '../services/interfaces/post-service-interface'
 import {ServiceTypes} from '../services/core/service-types'
 import {NextFunction, Request, Response} from 'express'
 import {Post} from '../models/post'
 import {ControllerBaseUrl, Get} from './core/decorators'
 import {BaseController} from './base-controller'
+import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
 
 // Controllers inherit from BaseController class, this class contain a field that stores
 // a mapping (we simply register method -> handler | handler[])
@@ -14,7 +14,7 @@ import {BaseController} from './base-controller'
 
 @ControllerBaseUrl('/posts')
 export class PostController extends BaseController {
-    private _postService: PostServiceInterface
+    private _postService: ApiServiceInterface<Post>
 
     constructor(container: ServiceContainer) {
         super()

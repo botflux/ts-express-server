@@ -4,8 +4,9 @@ import {Response} from 'node-fetch'
 import {ServiceContainer} from './core/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
+import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
 
-export default class PostService implements PostServiceInterface {
+export default class PostService implements ApiServiceInterface<Post> {
 
     private fetch: FetchFunctionInterface
 
@@ -13,7 +14,7 @@ export default class PostService implements PostServiceInterface {
         this.fetch = serviceContainer.getService(ServiceTypes.Fetch)
     }
 
-    find (id: number): Promise<Post> {
+    find (id: number | string): Promise<Post> {
         return this.fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
             .then((response: Response) => response.json())
             .then((post: Post) => post)
