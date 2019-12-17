@@ -25,3 +25,5 @@ export class UserService implements ApiServiceInterface<User> {
             .then((users: User[]) => users)
     }
 }
+
+export const createUserService = (serviceContainer: ServiceContainer) => new UserService(serviceContainer)

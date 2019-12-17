@@ -1,4 +1,4 @@
-import {ServiceContainer} from './service-container'
+import {ServiceContainer} from '../core/service-container'
 
 export interface ServiceFactoryInterface {
     (serviceContainer: ServiceContainer): any
