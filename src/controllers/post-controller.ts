@@ -1,7 +1,7 @@
-import {BaseController} from './base-controller'
-import {ControllerInterface} from './interfaces/controller-interfaces'
+import {BaseController} from '../core/controllers/base-controller'
+import {ControllerInterface} from '../core/controllers/interfaces/controller-interfaces'
 import {Router, Request, Response, NextFunction} from 'express'
-import {ServiceTypes} from '../services/core/service-types'
+import {ServiceTypes} from '../core/services/service-types'
 import {ApiServiceInterface} from '../services/interfaces/api-service-interface'
 import {Post} from '../models/post'
 

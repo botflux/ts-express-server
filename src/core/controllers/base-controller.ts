@@ -1,4 +1,4 @@
-import {ServiceContainer} from '../services/core/service-container'
+import {ServiceContainer} from '../services/service-container'
 
 export abstract class BaseController {
     private static _container: ServiceContainer

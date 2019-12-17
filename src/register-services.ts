@@ -1,5 +1,5 @@
-import {ServiceContainer} from './services/core/service-container'
-import {ServiceTypes} from './services/core/service-types'
+import {ServiceContainer} from './core/services/service-container'
+import {ServiceTypes} from './core/services/service-types'
 import fetch from 'node-fetch'
 import {createPostService, createUserService} from './services'
 import {createLogger} from './services/logger'

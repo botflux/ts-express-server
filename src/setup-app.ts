@@ -2,10 +2,10 @@ import 'reflect-metadata'
 import {Application, Router} from 'express'
 
 import { registerServices } from './register-services'
-import { ServiceContainer } from './services/core/service-container'
-import {BaseController} from './controllers/base-controller'
+import { ServiceContainer } from './core/services/service-container'
+import {BaseController} from './core/controllers/base-controller'
 import {controllers, registerControllers} from './register-controllers'
-import {ControllerFactoryFunction, ControllerInterface} from './controllers/interfaces/controller-interfaces'
+import {ControllerFactoryFunction, ControllerInterface} from './core/controllers/interfaces/controller-interfaces'
 import {afterAll, beforeAll} from './register-middlewares'
 
 export const setupApp = (app: Application) => {

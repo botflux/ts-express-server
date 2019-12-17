@@ -1,4 +1,4 @@
-import {ServiceContainer} from '../../services/core/service-container'
+import {ServiceContainer} from '../../services/service-container'
 import {Handler} from 'express'
 
 export interface MiddlewareFactoryInterface {
