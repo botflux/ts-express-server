@@ -9,5 +9,3 @@ export class Logger implements LoggerInterface {
         return this
     }
 }
-
-export const createLogger = () => new Logger()

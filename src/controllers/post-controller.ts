@@ -34,6 +34,3 @@ export class PostController extends BaseController {
         return '/posts'
     }
 }
-
-export const createPostController = (): ControllerInterface =>
-    new PostController()

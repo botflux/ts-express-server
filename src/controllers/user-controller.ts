@@ -29,6 +29,3 @@ export class UserController extends BaseController {
             .catch((error: Error) => next(error))
     }
 }
-
-export const createUserController = (): ControllerInterface =>
-    new UserController()

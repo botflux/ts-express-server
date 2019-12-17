@@ -29,5 +29,3 @@ export class PostService extends BaseService implements ApiServiceInterface<Post
             .then((posts: Post[]) => posts)
     }
 }
-
-// export const createPostService = (serviceContainer: ServiceContainer) => new PostService(serviceContainer)
