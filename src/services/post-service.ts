@@ -1,9 +1,9 @@
 import {PostServiceInterface} from './interfaces/post-service-interface'
 import {Post} from '../models/post'
 import {Response} from 'node-fetch'
-import {ServiceContainer} from './core/service-container'
+import {ServiceContainer} from '../core/services/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
-import {ServiceTypes} from './core/service-types'
+import {ServiceTypes} from '../core/services/service-types'
 import {ApiServiceInterface} from './interfaces/api-service-interface'
 
 export class PostService implements ApiServiceInterface<Post> {

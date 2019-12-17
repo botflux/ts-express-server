@@ -1,4 +1,4 @@
-import { ServiceFactoryInterface } from '../interfaces/service-interface'
+import { ServiceFactoryInterface } from './interfaces/service-interface'
 import { ServiceTypes } from './service-types'
 
 export class ServiceContainer {
