@@ -1,31 +1,41 @@
-import {ServiceContainer} from '../services/core/service-container'
-import {ServiceTypes} from '../services/core/service-types'
-import {NextFunction, Request, Response} from 'express'
-import {Post} from '../models/post'
-import {ControllerBaseUrl, Get} from './core/decorators'
 import {BaseController} from './base-controller'
-import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
+import {ControllerInterface} from './interfaces/controller-interfaces'
+import {Router, Request, Response, NextFunction} from 'express'
+import {ServiceTypes} from '../services/core/service-types'
+import {ApiServiceInterface} from '../services/interfaces/api-service-interface'
+import {Post} from '../models/post'
 
-@ControllerBaseUrl('/posts')
-export class PostController extends BaseController {
-    private _postService: ApiServiceInterface<Post>
+export class PostController extends BaseController implements ControllerInterface {
+    private readonly _postService: ApiServiceInterface<Post>
 
-    constructor(container: ServiceContainer) {
+    constructor() {
         super()
-        this._postService = container.getService(ServiceTypes.PostService)
+        this._postService = this.container.getService(ServiceTypes.PostService)
     }
 
-    @Get('/')
-    findAll (req: Request, res: Response, next: NextFunction) {
+    findAll(req: Request, res: Response, next: NextFunction) {
         this._postService.findAll()
             .then((posts: Post[]) => res.json(posts))
             .catch((error: Error) => next(error))
     }
 
-    @Get('/:id')
     find(req: Request, res: Response, next: NextFunction) {
-        this._postService.find(Number.parseInt(req.params.id))
+        this._postService.find(req.params.id)
             .then((post: Post) => res.json(post))
             .catch((error: Error) => next(error))
     }
+
+    getRouter (): Router {
+        const globalRouter = Router()
+        globalRouter.get('/', this.findAll.bind(this))
+        globalRouter.get('/:id', this.find.bind(this))
+        return globalRouter
+    }
+
+    getBasUrl() {
+        return '/posts'
+    }
 }
+
+export const createPostController = (): ControllerInterface =>
+    new PostController()

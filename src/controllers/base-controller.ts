@@ -1,63 +1,13 @@
-import { Handler } from 'express'
+import {ServiceContainer} from '../services/core/service-container'
 
-export class BaseController {
-    private _mapping?: RouteMapping
+export abstract class BaseController {
+    private static _container: ServiceContainer
 
-    getMapping(): RouteMapping | undefined {
-        return this._mapping
+    public static setContainer (container: ServiceContainer) {
+        BaseController._container = container
     }
 
-    initializeMapping() {
-        this._mapping = new RouteMapping()
-        return this._mapping
-    }
-}
-
-export class RouteMapping {
-    private _baseUrl: string
-    private _elements: RouteMappingElement[] = []
-
-    constructor(baseUrl: string = '') {
-        this._baseUrl = baseUrl
-    }
-
-    get baseUrl(): string {
-        return this._baseUrl
-    }
-
-    set baseUrl(baseUrl: string) {
-        this._baseUrl = baseUrl
-    }
-
-    get elements(): RouteMappingElement[] {
-        return this._elements
-    }
-
-    addElement (method: string, url: string, handler: Handler) {
-        this._elements.push(new RouteMappingElement(method, url, handler))
-    }
-}
-
-export class RouteMappingElement {
-    private readonly _method: string
-    private readonly _url: string
-    private readonly _handler: Handler
-
-    constructor(method: string, url: string, handler: Handler) {
-        this._method = method
-        this._url = url
-        this._handler = handler
-    }
-
-    get method(): string {
-        return this._method
-    }
-
-    get url(): string {
-        return this._url
-    }
-
-    get handler(): Handler {
-        return this._handler
+    protected get container () {
+        return BaseController._container
     }
 }

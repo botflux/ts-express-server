@@ -1,31 +1,41 @@
 import {BaseController} from './base-controller'
-import {ServiceContainer} from '../services/core/service-container'
+import {ControllerInterface} from './interfaces/controller-interfaces'
+import {Router, Request, Response, NextFunction} from 'express'
 import {ServiceTypes} from '../services/core/service-types'
-import {Request, Response, NextFunction} from 'express'
+import {ApiServiceInterface} from '../services/interfaces/api-service-interface'
 import {User} from '../models/user'
-import {ControllerBaseUrl, Get} from './core/decorators'
-import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
 
-@ControllerBaseUrl('/users')
-export class UserController extends BaseController {
+export class UserController extends BaseController implements ControllerInterface {
     private readonly _userService: ApiServiceInterface<User>
 
-    constructor(container: ServiceContainer) {
+    constructor() {
         super()
-        this._userService = container.getService(ServiceTypes.UserService)
+        this._userService = this.container.getService(ServiceTypes.UserService)
     }
 
-    @Get('/')
     findAll(req: Request, res: Response, next: NextFunction) {
         this._userService.findAll()
-            .then((users: User[]) => res.json(users))
-            .catch(error => next(error))
+            .then((posts: User[]) => res.json(posts))
+            .catch((error: Error) => next(error))
     }
 
-    @Get('/:id')
     find(req: Request, res: Response, next: NextFunction) {
-        this._userService.find(Number.parseInt(req.params.id))
-            .then((user: User) => res.json(user))
-            .catch(error => next(error))
+        this._userService.find(req.params.id)
+            .then((post: User) => res.json(post))
+            .catch((error: Error) => next(error))
+    }
+
+    getRouter (): Router {
+        const globalRouter = Router()
+        globalRouter.get('/', this.findAll.bind(this))
+        globalRouter.get('/:id', this.find.bind(this))
+        return globalRouter
+    }
+
+    getBasUrl() {
+        return '/users'
     }
 }
+
+export const createUserController = (): ControllerInterface =>
+    new UserController()

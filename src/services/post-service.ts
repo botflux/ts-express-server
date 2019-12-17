@@ -4,9 +4,9 @@ import {Response} from 'node-fetch'
 import {ServiceContainer} from './core/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
-import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
+import {ApiServiceInterface} from './interfaces/api-service-interface'
 
-export default class PostService implements ApiServiceInterface<Post> {
+export class PostService implements ApiServiceInterface<Post> {
 
     private fetch: FetchFunctionInterface
 
@@ -26,3 +26,5 @@ export default class PostService implements ApiServiceInterface<Post> {
             .then((posts: Post[]) => posts)
     }
 }
+
+export const createPostService = (serviceContainer: ServiceContainer) => new PostService(serviceContainer)
