@@ -1,7 +1,15 @@
 import {Application} from 'express'
-import {PostController} from './controllers/post-controller'
+import {ControllerFactoryFunction, ControllerInterface} from './controllers/interfaces/controller-interfaces'
+import {createPostController, createUserController} from './controllers'
 
 export const registerControllers = (app: Application) => {
-    const postsController = new PostController()
-    app.use(postsController.getBasUrl(), postsController.getRouter())
+    const factories: ControllerFactoryFunction[] = [
+        createUserController,
+        createPostController
+    ]
+
+    factories.forEach(factory => {
+        const c: ControllerInterface = factory()
+        app.use(c.getBasUrl(), c.getRouter())
+    })
 }

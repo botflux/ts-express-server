@@ -3,25 +3,25 @@ import {ControllerInterface} from './interfaces/controller-interfaces'
 import {Router, Request, Response, NextFunction} from 'express'
 import {ServiceTypes} from '../services/core/service-types'
 import {ApiServiceInterface} from '../services/interfaces/api-service-interface'
-import {Post} from '../models/post'
+import {User} from '../models/user'
 
-export class PostController extends BaseController implements ControllerInterface {
-    private readonly _postService: ApiServiceInterface<Post>
+export class UserController extends BaseController implements ControllerInterface {
+    private readonly _userService: ApiServiceInterface<User>
 
     constructor() {
         super()
-        this._postService = this.container.getService(ServiceTypes.PostService)
+        this._userService = this.container.getService(ServiceTypes.UserService)
     }
 
     findAll(req: Request, res: Response, next: NextFunction) {
-        this._postService.findAll()
-            .then((posts: Post[]) => res.json(posts))
+        this._userService.findAll()
+            .then((posts: User[]) => res.json(posts))
             .catch((error: Error) => next(error))
     }
 
     find(req: Request, res: Response, next: NextFunction) {
-        this._postService.find(req.params.id)
-            .then((post: Post) => res.json(post))
+        this._userService.find(req.params.id)
+            .then((post: User) => res.json(post))
             .catch((error: Error) => next(error))
     }
 
@@ -33,9 +33,9 @@ export class PostController extends BaseController implements ControllerInterfac
     }
 
     getBasUrl() {
-        return '/posts'
+        return '/users'
     }
 }
 
-export const createPostController = (): ControllerInterface =>
-    new PostController()
+export const createUserController = (): ControllerInterface =>
+    new UserController()
