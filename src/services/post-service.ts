@@ -4,7 +4,7 @@ import {Response} from 'node-fetch'
 import {ServiceContainer} from './core/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
-import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
+import {ApiServiceInterface} from './interfaces/api-service-interface'
 
 export default class PostService implements ApiServiceInterface<Post> {
 

@@ -4,7 +4,7 @@ import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from './core/service-types'
 import {Response} from 'node-fetch'
 import {User} from '../models/user'
-import {ApiServiceInterface} from '@services/interfaces/api-service-interface'
+import {ApiServiceInterface} from './interfaces/api-service-interface'
 
 export class UserService implements ApiServiceInterface<User> {
     private fetch: FetchFunctionInterface
