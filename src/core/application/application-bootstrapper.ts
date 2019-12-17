@@ -1,6 +1,7 @@
 import {Application} from 'express'
 import {MiddlewareInterface} from '../middlewares/interfaces/middlewares-interfaces'
 import {ControllerInterface} from '../controllers/interfaces/controller-interfaces'
+import {controllerRoutesToRouter} from '../controllers/controller-routes-to-router'
 
 export abstract class ApplicationBootstrapper {
 
@@ -14,6 +15,10 @@ export abstract class ApplicationBootstrapper {
 
         this.globalMiddlewares.forEach((middleware: MiddlewareInterface) => {
             this.application.use(middleware.invoke.bind(middleware))
+        })
+
+        this.controllers.forEach((controller: ControllerInterface) => {
+            this.application.use('/posts', controllerRoutesToRouter(controller.getControllerRoutes(), controller))
         })
 
         this.onInit()

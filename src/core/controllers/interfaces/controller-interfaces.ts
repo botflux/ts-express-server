@@ -1,18 +1,17 @@
-import {Router} from 'express'
-
-export interface GetRouterInterface {
-    (): Router
-}
-
-export interface GetBaseUrlInterface {
-    (): string
-}
+import {ControllerRoute} from '../base-controller'
 
 export interface ControllerInterface {
-    getRouter: GetRouterInterface
-    getBasUrl: GetBaseUrlInterface
+    getBasUrl(): string
+    getControllerRoutes(): ControllerRoute[]
 }
 
 export interface ControllerFactoryFunction {
     (): ControllerInterface
+}
+
+export enum HttpMethod {
+    Get,
+    Post,
+    Delete,
+    Put
 }
