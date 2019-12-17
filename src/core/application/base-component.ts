@@ -1,7 +1,7 @@
 import {ServiceContainer} from '../services/service-container'
 
 export abstract class BaseComponent {
-    private static _container: ServiceContainer
+    private static _container: ServiceContainer = new ServiceContainer()
 
     /**
      * Specify a service container
@@ -9,6 +9,10 @@ export abstract class BaseComponent {
      */
     public static setContainer (container: ServiceContainer) {
         BaseComponent._container = container
+    }
+
+    public static get container () {
+        return BaseComponent._container
     }
 
     /**

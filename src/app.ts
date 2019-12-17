@@ -1,8 +1,8 @@
 import {ApplicationBootstrapper} from './core/application/application-bootstrapper'
 import { Request, Response} from 'express'
 import './services'
-import './controllers'
 import './middlewares'
+import './controllers'
 
 export class App extends ApplicationBootstrapper{
     onInit(): void {

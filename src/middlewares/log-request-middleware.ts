@@ -19,16 +19,15 @@ import {GlobalMiddleware} from '../core/middlewares/decorators'
 @GlobalMiddleware()
 export class LoggerMiddleware extends BaseMiddleware implements MiddlewareInterface {
 
-    // private readonly _logger: LoggerInterface
+    private readonly _logger: LoggerInterface
 
     constructor() {
         super()
-        // this._logger = this.container.getService(ServiceTypes.Logger)
+        this._logger = this.container.getService(ServiceTypes.Logger)
     }
 
     invoke (req: Request, res: Response, next: NextFunction) {
-        // this._logger.log('Request', req.url)
-        console.log('im logging')
+        this._logger.log('Request', req.url)
         next()
     }
 }
