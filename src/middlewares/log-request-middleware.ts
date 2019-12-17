@@ -5,6 +5,7 @@ import {LoggerInterface} from '../services/interfaces/logger-interface'
 import {ServiceTypes} from '../core/services/service-types'
 import {BaseMiddleware} from '../core/middlewares/base-middleware'
 import {MiddlewareInterface} from '../core/middlewares/interfaces/middlewares-interfaces'
+import {GlobalMiddleware} from '../core/middlewares/decorators'
 //
 // export const logRequestMiddleware: MiddlewareFactoryInterface = (serviceContainer: ServiceContainer) => {
 //     const logger: LoggerInterface = serviceContainer.getService(ServiceTypes.Logger)
@@ -15,17 +16,19 @@ import {MiddlewareInterface} from '../core/middlewares/interfaces/middlewares-in
 //     }
 // }
 
+@GlobalMiddleware()
 export class LoggerMiddleware extends BaseMiddleware implements MiddlewareInterface {
 
-    private readonly _logger: LoggerInterface
+    // private readonly _logger: LoggerInterface
 
     constructor() {
         super()
-        this._logger = this.container.getService(ServiceTypes.Logger)
+        // this._logger = this.container.getService(ServiceTypes.Logger)
     }
 
     invoke (req: Request, res: Response, next: NextFunction) {
-        this._logger.log('Request', req.url)
+        // this._logger.log('Request', req.url)
+        console.log('im logging')
         next()
     }
 }
