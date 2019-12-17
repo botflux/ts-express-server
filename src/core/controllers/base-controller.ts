@@ -1,13 +1,3 @@
-import {ServiceContainer} from '../services/service-container'
+import {BaseComponent} from '../application/base-component'
 
-export abstract class BaseController {
-    private static _container: ServiceContainer
-
-    public static setContainer (container: ServiceContainer) {
-        BaseController._container = container
-    }
-
-    protected get container () {
-        return BaseController._container
-    }
-}
+export abstract class BaseController extends BaseComponent {}
