@@ -5,5 +5,5 @@ export enum ServiceTypes {
     GetRouterCommand,
     PostRouterCommand,
     RouterCommandHandler,
-    DummyService
+    Logger
 }
