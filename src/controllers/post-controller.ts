@@ -6,7 +6,7 @@ import {ApiServiceInterface} from '../services/interfaces/api-service-interface'
 import {Post} from '../models/post'
 import {Controller, Route} from '../core/controllers/decorators'
 
-@Controller('')
+@Controller('/posts')
 export class PostController extends BaseController {
     private readonly _postService: ApiServiceInterface<Post>
 
@@ -28,9 +28,5 @@ export class PostController extends BaseController {
         this._postService.find(req.params.id)
             .then((post: Post) => res.json(post))
             .catch((error: Error) => next(error))
-    }
-
-    getBasUrl() {
-        return '/posts'
     }
 }
