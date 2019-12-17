@@ -1,4 +1,4 @@
-import {BaseController, ControllerRoute} from './base-controller'
+import {ControllerRoute} from './base-controller'
 import {ControllerInterface, HttpMethod} from './interfaces/controller-interfaces'
 import {ApplicationBootstrapper} from '../application/application-bootstrapper'
 
@@ -11,5 +11,6 @@ export const Route = (method: HttpMethod, url: string) =>
 export const Controller = (baseUrl: string) =>
     <T extends{new(...args: any[]): ControllerInterface}>(constructor: T) => {
         const controller: ControllerInterface = new constructor()
+        controller.setBaseUrl(baseUrl)
         ApplicationBootstrapper.controllers.push(controller)
     }

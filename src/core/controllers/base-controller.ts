@@ -4,6 +4,7 @@ import {ControllerInterface, HttpMethod} from './interfaces/controller-interface
 
 export abstract class BaseController extends BaseComponent implements ControllerInterface {
     private controllerRoutes?: ControllerRoute[]
+    private baseUrl?: string
 
     public getControllerRoutes(): ControllerRoute[] {
         return this.controllerRoutes || this.initializeControllerRoutes()
@@ -15,7 +16,11 @@ export abstract class BaseController extends BaseComponent implements Controller
     }
 
     getBasUrl () {
-        return ''
+        return this.baseUrl || '/'
+    }
+
+    setBaseUrl(url: string): void {
+        this.baseUrl = url
     }
 }
 

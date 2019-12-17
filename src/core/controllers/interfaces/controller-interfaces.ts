@@ -2,6 +2,7 @@ import {ControllerRoute} from '../base-controller'
 
 export interface ControllerInterface {
     getBasUrl(): string
+    setBaseUrl(url: string): void
     getControllerRoutes(): ControllerRoute[]
 }
 

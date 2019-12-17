@@ -18,7 +18,7 @@ export abstract class ApplicationBootstrapper {
         })
 
         this.controllers.forEach((controller: ControllerInterface) => {
-            this.application.use('/posts', controllerRoutesToRouter(controller.getControllerRoutes(), controller))
+            this.application.use(controller.getBasUrl(), controllerRoutesToRouter(controller.getControllerRoutes(), controller))
         })
 
         this.onInit()
