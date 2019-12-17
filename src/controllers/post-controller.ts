@@ -12,7 +12,6 @@ export class PostController extends BaseController {
 
     constructor() {
         super()
-        console.log('post controller',this.container)
         this._postService = this.container.getService(ServiceTypes.PostService)
     }
 
