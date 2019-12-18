@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import {ApplicationBootstrapper} from './core/application/application-bootstrapper'
 import './services'
 import './middlewares'

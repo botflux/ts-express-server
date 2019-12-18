@@ -1,6 +1,5 @@
 import {Post} from '../models/post'
 import {Response} from 'node-fetch'
-import {ServiceContainer} from '../core/services/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from '../core/services/service-types'
 import {ApiServiceInterface} from './interfaces/api-service-interface'
