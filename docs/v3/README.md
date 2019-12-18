@@ -85,3 +85,23 @@ class Application {
     listen (port) {}
 }
 ```
+
+## Results
+
+### Done
+
+- Global middlewares (registered with decorators)
+- Controller (registered with decorators)
+- Services (registered with decorators)
+- Injection using BaseComponent class which hold a ServiceContainer static instance
+
+### Not done
+
+- Route and controller level middleware
+- Injection with decorators
+
+### Notes
+
+This architecture, in order to work, need to evaluate controllers, services and middlewares, which can be 
+a work for ts parser. I think you can't add treeshaking because link between app.ts and controllers/services/middlewares
+are not explicit.
