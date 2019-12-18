@@ -1,17 +1,19 @@
-import {PostServiceInterface} from './interfaces/post-service-interface'
 import {Post} from '../models/post'
 import {Response} from 'node-fetch'
-import {ServiceContainer} from '../core/services/service-container'
 import {FetchFunctionInterface} from './interfaces/fetch-function-interface'
 import {ServiceTypes} from '../core/services/service-types'
 import {ApiServiceInterface} from './interfaces/api-service-interface'
+import {Service} from '../core/services/decorators'
+import {BaseService} from '../core/services/base-service'
 
-export class PostService implements ApiServiceInterface<Post> {
+@Service(ServiceTypes.PostService)
+export class PostService extends BaseService implements ApiServiceInterface<Post> {
 
     private fetch: FetchFunctionInterface
 
-    constructor(serviceContainer: ServiceContainer) {
-        this.fetch = serviceContainer.getService(ServiceTypes.Fetch)
+    constructor() {
+        super()
+        this.fetch = this.container.getService(ServiceTypes.Fetch).fetch
     }
 
     find (id: number | string): Promise<Post> {
@@ -26,5 +28,3 @@ export class PostService implements ApiServiceInterface<Post> {
             .then((posts: Post[]) => posts)
     }
 }
-
-export const createPostService = (serviceContainer: ServiceContainer) => new PostService(serviceContainer)

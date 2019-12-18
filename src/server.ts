@@ -1,10 +1,7 @@
-import express from 'express'
-import {setupApp} from './setup-app'
+import express, {Application} from 'express'
+import {App} from './app'
 
-const app = express()
+const app: Application = express()
 const port: string | number = process.env.PORT || 3000
 
-setupApp(app)
-
-app.listen(port, () =>
-    console.log(`Application is listening on port http://localhost:${port}`))
+new App(app).listen(port)
